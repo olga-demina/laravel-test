@@ -14,5 +14,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $data = [
+        'name' => 'Olga',
+        'lastname' => 'Demina',
+        'isLoggedIn' => false,
+        'students' => [
+            [
+                'name' => 'Luca',
+                'lastname' => 'Bodasca'
+            ],
+            [
+                'name' => 'Fabrizio',
+                'lastname' => 'Bocca'
+            ],
+            [
+                'name' => 'Christian',
+                'lastname' => 'Capodanno'
+            ]
+        ],
+        'anotherArray' => [
+
+        ]
+    ];
+    return view('home', $data);
+})->name('home');
+
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about');
